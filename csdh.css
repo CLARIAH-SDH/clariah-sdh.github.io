@@ -1,0 +1,76 @@
+	h1
+	{
+	font-family:Verdana;
+	font-size:16px;
+	font-style:bold;
+	}
+	
+/* footnote text  */
+	h5
+	{
+	font-style:italic;
+	font-family:Verdana;
+	font-size:12px;
+	}
+
+
+	p
+	{
+	font-family:Verdana;
+	font-size:14px;
+	}
+	
+
+/* lists including "header menu" */
+	ul.menu
+	{
+	font-family:Verdana;
+	font-size:16px;	
+	font-style:bold;
+	list-style-type:none;
+	margin:5;
+	padding:5;
+	}
+	
+	ul.sq 
+	{
+	font-family:Verdana;
+	font-size:14px;	
+	list-style-type: square;
+	}
+
+	li.menu
+	{
+	display:inline;
+	}
+
+/* tables */
+	table.txt
+	{
+	font-family:Verdana;
+	font-size:14px;
+
+	}
+
+	th.txt
+	{
+	font-family:Verdana;
+	font-size:14px;
+	font-style:bold;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	padding-left:10px;
+	}
+
+
+	td.txt
+	{
+	font-family:Verdana;
+	font-size:14px;	
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	padding-left:10px;
+	}
+
