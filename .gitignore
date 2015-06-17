@@ -1,0 +1,9 @@
+# Vim swap files
+.swp
+
+# R files
+.Rhistory
+.Rapp.history
+
+# RStudio files
+.Rproj.user/
