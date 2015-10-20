@@ -1,4 +1,4 @@
-The CSDH team consists currently of five members while extra hands are expected in the first quarter of 2016.
+The CSDH team consists currently of six members while extra hands are expected in the first quarter of 2016.
 
 * Kathrin Dentler
 * Rinke Hoekstra
