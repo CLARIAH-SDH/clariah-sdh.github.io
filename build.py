@@ -1,4 +1,3 @@
-# We import the markdown library
 import markdown
 import glob
 from yaml import load
@@ -22,7 +21,6 @@ for b in config['blogs']:
             post = markdown.markdown(post_file.read())
             blog.append(post)
 
-print blogs
 index = env.get_template('index.html')
 index_rendered = index.render(content=content, blogs=blogs)
 
