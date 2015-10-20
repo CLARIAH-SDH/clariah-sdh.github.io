@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/csdh.css" />
+	</head>
+
+	<body>
+
+    <div class="jumbotron slate2">
+        <div class="container">
+					{{content.lead}}
+        <p>
+					<a class="btn btn-primary btn-lg" href="#activity" role="button">Learn more &raquo;</a>
+					<a class="btn btn-info btn-lg" href="#code" role="button">Code &raquo;</a>
+				</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h1>About</h1>
+          {{content.about}}
+        </div>
+        <div class="col-md-6">
+          <h1>Members</h1>
+          {{content.members}}
+        </div>
+      </div>
+		</div>
+		<div class="page-header girl small">
+				<div class="container">
+					<h1 id='activity'>Activity</h1>
+			</div>
+		</div>
+		<div class="container">
+      <div class="row">
+      {% for post in blogs.posts %}
+
+        <div class="col-md-6">
+          {{ post }}
+        </div>
+
+      {% endfor %}
+      </div>
+    </div>
+		<div class="page-header euphoria">
+				<div class="container">
+					<h1 id='code'>Code</h1>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+			{% for post in blogs.code %}
+
+				<div class="col-md-6">
+					{{ post }}
+				</div>
+
+			{% endfor %}
+
+			</div>
+		</div>
+		<div class="page-header tangblend">
+			<div class="container">
+					{{content.footer}}
+			</div>
+		</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+</body>
+</html>
