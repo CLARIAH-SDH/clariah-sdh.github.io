@@ -1,1 +1,1 @@
-<div class="github-card" data-user="CLARIAH-SDH" data-repo="qber"></div>
+<div class="github-card" data-user="CLARIAH" data-theme="default" data-repo="qber"></div>
