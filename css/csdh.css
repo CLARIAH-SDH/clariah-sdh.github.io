@@ -10,6 +10,12 @@ h1, h2, h3, h4, h5 {
 	font-family: Signika;
 }
 
+img.logo {
+	padding: 5px;
+	max-width: 180px;
+	max-height: 75px;
+}
+
 .kaaskop h1, .lagoon h1 {
 	text-shadow: 2px 2px #111;
 }
