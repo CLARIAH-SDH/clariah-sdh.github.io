@@ -10,3 +10,13 @@ img.head {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
   font-family: Dosis;
 }
+
+@media (max-width: 990px){
+  img.phone {
+    display: none;
+  }
+
+  div.parallax-background {
+    max-height: 600;
+  }
+}
