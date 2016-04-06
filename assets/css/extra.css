@@ -1,0 +1,12 @@
+.logo-container .brand img {
+    max-height: 100%
+}
+
+img.head {
+  max-height: 100px;
+  margin-left: -30px;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  font-family: Dosis;
+}
