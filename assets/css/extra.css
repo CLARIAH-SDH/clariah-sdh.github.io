@@ -7,7 +7,12 @@ img.head {
   margin-left: -30px;
 }
 
-h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+.btn-neutral>img {
+    max-height: 25px;
+    margin-bottom: 8px;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   font-family: Dosis;
 }
 
