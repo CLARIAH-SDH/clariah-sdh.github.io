@@ -2,14 +2,18 @@
     max-height: 100%
 }
 
+.landing-page .parallax .description {
+  padding-left: 0px;
+}
+
 img.head {
   max-height: 100px;
-  margin-left: -30px;
+  margin-left: -28px;
 }
 
 .btn-neutral>img {
-    max-height: 25px;
-    margin-bottom: 8px;
+    max-height: 14px;
+    /*margin-bottom: 8px;*/
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
