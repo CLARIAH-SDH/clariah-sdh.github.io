@@ -20,6 +20,14 @@
 
     </head>
     <body class="landing-page landing-page1">
+      <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=112469485604205";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <nav class="navbar navbar-transparent navbar-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +38,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                     </button>
-                    <a href="http://www.creative-tim.com">
+                    <a href="/">
                         <div class="logo-container">
                             <!-- <div class="logo">
 
@@ -46,9 +54,9 @@
                 <div class="collapse navbar-collapse" id="example" >
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
-                            <i class="fa fa-facebook-square"></i>
-                            Like
+                            <a href="#" data-href="https://www.facebook.com/datalegend/" data-layout="button" data-action="like" data-show-faces="false" data-share="false">
+                              <i class="fa fa-facebook-square"></i>
+                              Like
                             </a>
                         </li>
                         <li>
@@ -124,12 +132,12 @@
                             <div class="description">
                                 <h4 class="header-text">It's easy</h4>
                                 <p>A fast, responsive interface allows you to set your data free. A community effort to connect data and codes, by and for researchers.</p>
-                                <p>Once published on <span style='font-family: dosis;'><strong>data</strong>legend</span>, your data is directly available for query-based analysis and comparative, cross-dataset studies.</p>
+                                <p>Once published on <span class="dl"><strong>data</strong>legend</span>, your data is directly available for query-based analysis and comparative, cross-dataset studies.</p>
                                 <p>You're in control of who can access your data.</p>
                             </div>
                         </div>
                         <div class="col-md-5 col-md-offset-1 hidden-xs">
-                            <img src="assets/img/qber.png"/>
+                            <img src="assets/img/screenshots/qber-noshadow.png"/>
                         </div>
                     </div>
                 </div>
@@ -140,14 +148,14 @@
                         <div class="col-md-6">
                             <div id="description-carousel" class="carousel fade" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    <div class="item">
-                                        <img src="assets/img/template/examples/home_33.jpg" alt="">
-                                    </div>
                                     <div class="item active">
-                                        <img src="assets/img/template/examples/home_22.jpg" alt="">
+                                        <img src="assets/img/screenshots/inspector.png" alt="">
                                     </div>
                                     <div class="item">
-                                        <img src="assets/img/template/examples/home_11.jpg" alt="">
+                                        <img src="assets/img/screenshots/grlc.png" alt="">
+                                    </div>
+                                    <div class="item">
+                                        <img src="assets/img/screenshots/api.png" alt="">
                                     </div>
                                 </div>
                                 <ol class="carousel-indicators carousel-indicators-blue">
@@ -160,9 +168,10 @@
                         <div class="col-md-5 col-md-offset-1">
                             <h4 class="header-text">The Shoulders of Giants</h4>
                             <p>
-                                With all the apps that users love! Make it easy for users to share, like, post and tweet their favourite things from the app. Be sure to let users know they continue to remain connected while using your app!
+                                Grow a web of interconnected, provenance-aware, structured data. Formulate and share <em>live</em> queries across the research data web, and directly link to them from your research publication. Build apps and visualizations that make your data come alive.
+                                <!-- With all the apps that users love! Make it easy for users to share, like, post and tweet their favourite things from the app. Be sure to let users know they continue to remain connected while using your app! -->
                             </p>
-                            <a href="http://www.creative-tim.com/product/awesome-landing-page" id="Demo3" class="btn btn-fill btn-info" data-button="info">Get Free Demo</a>
+                            <a href="http://inspector.clariah-sdh.eculture.labs.vu.nl/" id="Inspector" class="btn btn-fill btn-info" data-button="info">Discover</a>
                         </div>
                     </div>
                 </div>
@@ -245,15 +254,42 @@
                     </div>
                 </div>
             </div>
+            <div class="section section-products">
+              <div class="container">
+                <h4 class="header-text text-center">Stuff to Watch</h4>
+                {% for post in blogs.posts %}
+                  {% if loop.cycle('first', 'second').first %}
+                    <div class="row">
+                  {% endif %}
+                    <div class="col-md-6">
+                      <h4>{{ post.title }}</h4>
+                      <h5><small>{{ post.type }}</small></h5>
+                      {% if 'source' in post %}
+                        <div style="border-radius: 10px; width: 455px; height: 375px; overflow: hidden; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.23)">
+                          <iframe src="{{ post.source }}" width="455" height="375" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                        </div>
+                      {% endif %}
+                      {% if post.text %}
+                        <div class="carousel-testimonial-caption">
+                          {{ post.text }}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% if loop.cycle('first', 'second').first %}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
             <div class="section section-no-padding">
                 <div class="parallax filter-gradient blue" data-color="blue">
                     <div class="parallax-background">
                         <img class ="parallax-background-image" src="assets/img/desert-1050x884.jpg"/>
                     </div>
                     <div class="info">
-                        <h1>Download this landing page for free!</h1>
-                        <p>Beautiful multipurpose bootstrap landing page.</p>
-                        <a href="http://www.creative-tim.com/product/awesome-landing-page" class="btn btn-neutral btn-lg btn-fill">DOWNLOAD</a>
+                        <h1>Participate</h1>
+                        <p>Want to stay informed, follow a course, contribute data, collaborate on code, develop apps?</p>
+                        <a href="mailto:richard.zijdeman@iisg.nl" class="btn btn-neutral btn-lg btn-fill">Get in Touch</a>
                     </div>
                 </div>
             </div>
@@ -267,13 +303,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                Company
+                                <a href="http://www.clariah.nl">
+                                CLARIAH
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                Portfolio
+                                <a href="https://github.com/CLARIAH">
+                                GitHub
                                 </a>
                             </li>
                             <li>
@@ -295,7 +331,7 @@
                         </a>
                     </div>
                     <div class="copyright">
-                        &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love
+                        &copy; 2016 Rinke Hoekstra, VUA/UvA and <a href="http://www.creative-tim.com">Creative Tim</a>.
                     </div>
                 </div>
             </footer>

@@ -22,7 +22,8 @@ class BuildHandler(FileSystemEventHandler):
     def on_modified(self, event):
         if (isinstance(event, FileModifiedEvent) and
                 (event.src_path.endswith('.md') or
-                 event.src_path.endswith('.html'))):
+                 event.src_path.endswith('.html') or
+                 event.src_path.endswith('.yaml') )):
             if event.src_path.endswith('./index.html'):
                 print "Not rebuilding index.html"
                 return
@@ -45,9 +46,12 @@ def build():
     blogs = {}
     for b in config['blogs']:
         blog = blogs[b] = []
-        for post_filename in glob.glob('{}/*.md'.format(b)):
+        for post_filename in glob.glob('{}/*.yaml'.format(b)):
             with open(post_filename, 'r') as post_file:
-                post = markdown.markdown(post_file.read().decode('utf-8'), extensions=extensions)
+                post = load(post_file.read().decode('utf-8'))
+                # Render the markdown of the text, if applicable
+                if 'text' in post:
+                    post['text'] = markdown.markdown(post['text'], extensions=extensions)
                 blog.append(post)
 
     index = env.get_template('index.html')

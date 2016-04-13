@@ -6,6 +6,10 @@
   padding-left: 0px;
 }
 
+.dl {
+  font-family: "Dosis";
+}
+
 img.head {
   max-height: 100px;
   margin-left: -28px;

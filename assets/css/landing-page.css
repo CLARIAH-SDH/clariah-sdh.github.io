@@ -1272,6 +1272,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#de8e0009', e
     text-shadow: none;
    }
 
+
+   .landing-page .section-products{
+        margin: 50px 0;
+   }
+
    .landing-page .carousel.fade {
   opacity: 1;
 }
