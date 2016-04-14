@@ -11,11 +11,21 @@ from jinja2 import Environment, PackageLoader
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler, FileModifiedEvent
 
+from feedgen.feed import FeedGenerator
+
+from slugify import slugify
 
 env = Environment(loader=PackageLoader('build', 'templates'))
 
 extensions = ['markdown.extensions.tables', 'markdown.extensions.codehilite',
               'markdown.extensions.headerid', 'markdown.extensions.attr_list']
+
+fg = FeedGenerator()
+fg.id('http://datalegend.net')
+fg.title('datalegend')
+fg.author({'name': 'datalegend team', 'email': 'richard.zijdeman@iisg.nl'})
+fg.logo('http://datalegend.net/assets/img/datalegend-logo-150dpi.png')
+fg.language('en')
 
 
 class BuildHandler(FileSystemEventHandler):
@@ -37,6 +47,9 @@ def build():
     with open('config.yaml', 'r') as config_file:
         config = load(config_file.read())
 
+
+
+
     content = {}
     for c in config['content']:
         content_filename = 'content/{}.md'.format(c)
@@ -49,9 +62,25 @@ def build():
         for post_filename in glob.glob('{}/*.yaml'.format(b)):
             with open(post_filename, 'r') as post_file:
                 post = load(post_file.read().decode('utf-8'))
+                print post
+                fe = fg.add_entry()
+                fe.id(slugify(post['title'].decode('utf-8')))
+                # fe.category([post['type']])
+                fe.title(post['title'])
                 # Render the markdown of the text, if applicable
                 if 'text' in post:
                     post['text'] = markdown.markdown(post['text'], extensions=extensions)
+                    fe.description({'content': post['text'], 'summary': post['text'][:20]})
+                if 'source' in post:
+                    fe.link({'href': post['source'], 'rel': 'alternate'})
+
+                if 'text' not in post:
+                    # Houston we've got a problem
+                    fe.description({'content': 'empty', 'summary': 'empty'})
+                if 'source' not in post:
+                    # Houston we've got a problem
+                    fe.link({'href': 'http://datalegend.net', 'rel': 'alternate'})
+
                 blog.append(post)
 
     index = env.get_template('index.html')
@@ -59,6 +88,9 @@ def build():
 
     with open('index.html', 'w') as index_file:
         index_file.write(index_rendered.encode('utf-8'))
+
+    fg.atom_file('atom.xml')
+    # fg.rss_file('rss.xml')
 
 
 if __name__ == "__main__":
