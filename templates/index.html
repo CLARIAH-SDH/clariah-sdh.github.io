@@ -229,7 +229,7 @@
             <div class="section section-testimonial">
                 <div class="container">
                     <h4 class="header-text text-center">What people think</h4>
-                    <div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
+                    <div id="carousel-testimonials" class="carousel fade" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             {% for testimonial in blogs.testimonials %}
@@ -251,9 +251,9 @@
                         <ol class="carousel-indicators carousel-indicators-blue">
                             {% for testimonial in blogs.testimonials %}
                               {% if loop.first %}
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
                               {% else %}
-                                <li data-target="#carousel-example-generic" data-slide-to="{{loop.index}}"></li>
+                                <li data-target="#carousel-testimonials" data-slide-to="{{loop.index}}"></li>
                               {% endif %}
                             {% endfor %}
                         </ol>
@@ -290,7 +290,7 @@
             <div class="section section-gray section-testimonial">
                 <div class="container">
                     <h4 class="header-text text-center">Team</h4>
-                    <div id="carousel-example-generic" class="carousel fade" data-ride="carousel">
+                    <div id="carousel-team" class="carousel fade" data-ride="carousel">
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             {% for teammember in blogs.team %}
@@ -312,9 +312,9 @@
                         <ol class="carousel-indicators carousel-indicators-blue">
                             {% for teammember in blogs.team %}
                               {% if loop.first %}
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-team" data-slide-to="0" class="active"></li>
                               {% else %}
-                                <li data-target="#carousel-example-generic" data-slide-to="{{loop.index}}"></li>
+                                <li data-target="#carousel-team" data-slide-to="{{loop.index}}"></li>
                               {% endif %}
                             {% endfor %}
                         </ol>
