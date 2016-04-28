@@ -35,7 +35,7 @@ class BuildHandler(FileSystemEventHandler):
                  event.src_path.endswith('.html') or
                  event.src_path.endswith('.yaml') )):
             if event.src_path.endswith('./index.html'):
-                print "Not rebuilding index.html"
+                print "Not rebuilding the root index.html"
                 return
 
             print("File change detected, rebuilding...")
@@ -59,27 +59,31 @@ def build():
     blogs = {}
     for b in config['blogs']:
         blog = blogs[b] = []
-        for post_filename in glob.glob('{}/*.yaml'.format(b)):
+        files = list(glob.glob('{}/*.yaml'.format(b)))
+
+        for post_filename in sorted(files, reverse=True):
             with open(post_filename, 'r') as post_file:
                 post = load(post_file.read().decode('utf-8'))
                 print post
-                fe = fg.add_entry()
-                fe.id(slugify(post['title'].decode('utf-8')))
-                # fe.category([post['type']])
-                fe.title(post['title'])
-                # Render the markdown of the text, if applicable
-                if 'text' in post:
-                    post['text'] = markdown.markdown(post['text'], extensions=extensions)
-                    fe.description({'content': post['text'], 'summary': post['text'][:20]})
-                if 'source' in post:
-                    fe.link({'href': post['source'], 'rel': 'alternate'})
+                if 'title' in post:
+                    # We're dealing with a proper blog post...
+                    fe = fg.add_entry()
+                    fe.id(slugify(post['title'].decode('utf-8')))
+                    # fe.category([post['type']])
+                    fe.title(post['title'])
+                    # Render the markdown of the text, if applicable
+                    if 'text' in post:
+                        post['text'] = markdown.markdown(post['text'], extensions=extensions)
+                        fe.description({'content': post['text'], 'summary': post['text'][:20]})
+                    if 'source' in post:
+                        fe.link({'href': post['source'], 'rel': 'alternate'})
 
-                if 'text' not in post:
-                    # Houston we've got a problem
-                    fe.description({'content': 'empty', 'summary': 'empty'})
-                if 'source' not in post:
-                    # Houston we've got a problem
-                    fe.link({'href': 'http://datalegend.net', 'rel': 'alternate'})
+                    if 'text' not in post:
+                        # Houston we've got a problem
+                        fe.description({'content': 'empty', 'summary': 'empty'})
+                    if 'source' not in post:
+                        # Houston we've got a problem
+                        fe.link({'href': 'http://datalegend.net', 'rel': 'alternate'})
 
                 blog.append(post)
 
