@@ -314,7 +314,7 @@
                               {% if loop.first %}
                                 <li data-target="#carousel-team" data-slide-to="0" class="active"></li>
                               {% else %}
-                                <li data-target="#carousel-team" data-slide-to="{{loop.index}}"></li>
+                                <li data-target="#carousel-team" data-slide-to="{{ loop.index - 1 }}"></li>
                               {% endif %}
                             {% endfor %}
                         </ol>
