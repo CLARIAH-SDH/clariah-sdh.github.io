@@ -7,3 +7,6 @@
 
 # RStudio files
 .Rproj.user/
+
+# Python files
+.Python
