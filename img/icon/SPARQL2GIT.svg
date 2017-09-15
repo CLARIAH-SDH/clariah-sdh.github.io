@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+<path fill="#EFC75E" d="M50,0c27.613,0,50,22.386,50,50s-22.387,50-50,50C22.386,100,0,77.614,0,50S22.386,0,50,0z"/>
+<text transform="matrix(1 0 0 1 9 42.5)" fill="#FFFFFF" font-family="'MyriadPro-Semibold'" font-size="25">SPARQL</text>
+<text transform="matrix(1 0 0 1 43.75 60.5)" fill="#FFFFFF" font-family="'MyriadPro-Semibold'" font-size="18">2</text>
+<text transform="matrix(1 0 0 1 30.75 84.5)" fill="#FFFFFF" font-family="'MyriadPro-Semibold'" font-size="25">GIT</text>
+</svg>
